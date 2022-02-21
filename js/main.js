@@ -9,11 +9,11 @@ console.log (getRandom(0, 10));
 
 // Проверка максимальной длины строки
 
-let x = 'Hellower';
+let x = 'Hello';
 function string (x, y) {
   if (x > y) {
     return ('Превышено максимальное количество символов');
   }
   return ('Количество символов допустимое');
 }
-console.log (string(x.length, 20));
+console.log (string(x.length, 140));
