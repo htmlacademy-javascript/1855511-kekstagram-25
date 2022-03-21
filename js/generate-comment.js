@@ -24,13 +24,11 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const generateComment = (commentId) => {
-  return {
-    id: commentId,
-    avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
-    message: getRandomArrayElement(MESSAGES),
-    name: getRandomArrayElement(NAMES),
-  }
-}
+const generateComment = (commentId) => ({
+  id: commentId,
+  avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
+  message: getRandomArrayElement(MESSAGES),
+  name: getRandomArrayElement(NAMES),
+});
 
 export {generateComment};

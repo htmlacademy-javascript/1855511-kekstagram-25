@@ -8,25 +8,18 @@ const PHOTOS_DESCRIPTIONS = [
   'Описание фотографии 3',
 ];
 
-const generateData = () => {
-  return Array.from(
-    { length: 25 },
-    (el, i) => {
-      return {
-        id: i + 1,
-        url: `photos/${i + 1}.jpg`,
-        description: getRandomArrayElement(PHOTOS_DESCRIPTIONS),
-        likes: getRandomInt(15, 200),
-        comments: Array.from(
-          { length: getRandomInt(1, 5) },
-          (el, j) => {
-            return generateComment(j + 1)
-          }
-        )
-      }
-    }
-  )
-}
+const generateData = () => Array.from(
+  { length: 25 },
+  (el, i) => ({
+    id: i + 1,
+    url: `photos/${i + 1}.jpg`,
+    description: getRandomArrayElement(PHOTOS_DESCRIPTIONS),
+    likes: getRandomInt(15, 200),
+    comments: Array.from(
+      { length: getRandomInt(1, 5) },
+      (al, j) => generateComment(j + 1)
+    )
+  })
+);
 
 export {generateData};
-
