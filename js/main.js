@@ -1,5 +1,5 @@
 import {generateData} from './data.js';
+import {renderPictures} from './miniatures.js';
 
-console.log(
-  generateData()
-);
+const DATA = generateData();
+document.querySelector('.pictures').appendChild(renderPictures(DATA));
