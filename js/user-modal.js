@@ -5,6 +5,8 @@ const userModalElement = document.querySelector('.img-upload__overlay');
 const userModalOpenElement = document.querySelector('#upload-file');
 const userModalCloseElement = document.querySelector('#upload-cancel');
 const bodyModalOpen = document.querySelector('body');
+const userFocusHashtags = document.querySelector('.text__hashtags');
+const userFocusDescription = document.querySelector('.text__description');
 
 function openUserModal () {
   userModalElement.classList.remove('hidden');
@@ -18,6 +20,7 @@ function openUserModal () {
   });
 }
 
+
 function closeUserModal () {
   userModalElement.classList.add('hidden');
   bodyModalOpen.classList.remove('modal-open');
@@ -29,6 +32,9 @@ function closeUserModal () {
     }
   });
 }
+
+userFocusHashtags.addEventListener('keydown', (e) => { e.stopPropagation(); });
+userFocusDescription.addEventListener('keydown', (e) => { e.stopPropagation(); });
 
 userModalOpenElement.addEventListener('change', () => {
   openUserModal();
