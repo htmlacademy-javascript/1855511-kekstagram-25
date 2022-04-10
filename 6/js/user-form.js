@@ -8,12 +8,16 @@ const hashRegex = /^#[A-Za-zА-яа-яЕё0-9]{1,19}$/;
 
 validator.addValidator(
   document.querySelector('[name="hashtags"]'),
-  (value) => { if(!value) {
-    return value
-      .trim()
-      .split(' ')
-      .filter((tag) => tag !== '')
-      .every((tag) => hashRegex.test(tag));}},
+  (value) => {
+    if(!value) {
+      return value
+        .trim()
+        .split(' ')
+        .filter((tag) => tag !== '')
+        .every((tag) => hashRegex.test(tag));
+    }
+  },
+  'Неверный формат хештега'
 );
 
 form.addEventListener('submit', (e) => {
