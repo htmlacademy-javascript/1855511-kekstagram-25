@@ -1,8 +1,7 @@
 const form = document.getElementById('upload-select-image');
 const validator = window.validator = new Pristine(form, {
-  classTo: 'img-upload__text',
-  errorTextParent: 'img-upload__text',
-  errorTextClass: 'img-upload__text',
+  classTo: 'pristine-message',
+  errorTextParent: 'pristine-message'
 });
 
 const hashRegex = /^#[A-Za-zА-яа-яЕё0-9]{1,19}$/;
@@ -10,7 +9,7 @@ const hashRegex = /^#[A-Za-zА-яа-яЕё0-9]{1,19}$/;
 validator.addValidator(
   document.querySelector('[name="hashtags"]'),
   (value) => { if(!value) {
-    return true
+    return value
       .trim()
       .split(' ')
       .filter((tag) => tag !== '')
@@ -19,10 +18,5 @@ validator.addValidator(
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
-  if (validator.validate()) {
-    console.log('true');
-  } else {
-    console.log('false');
-  }
+  validator.validate();
 });

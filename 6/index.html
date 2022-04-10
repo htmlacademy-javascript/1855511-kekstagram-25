@@ -53,7 +53,7 @@
 
                   <!-- Предварительный просмотр изображения -->
                   <div class="img-upload__preview">
-                    <img src="" class="preview" alt="Предварительный просмотр фотографии">
+                    <img src="img/upload-default-image.jpg" class="preview" alt="Предварительный просмотр фотографии">
                   </div>
 
                   <!-- Изменение глубины эффекта, накладываемого на изображение -->
@@ -116,13 +116,13 @@
 
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <input class="text__hashtags" type="text" name="hashtags" placeholder="#ХэшТег" minlength="2" maxlength="20"
-                  data-pristine-minlength-message="Минимальная длина 2 символа"
-                  data-pristine-maxlength-message="Максимальная длина 20 символов"
-                  data-pristine-pattern=/^#[A-Za-zА-яа-яЕё0-9]{1,19}$/
-                  data-pristine-pattern-message="Неверный формат">
+                  <div class="pristine-message">
+                    <input class="text__hashtags" type="text" name="hashtags" placeholder="#ХэшТег" minlength="2" maxlength="20">
+                  </div>
+                  <div class="pristine-message">
                   <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"
-                  data-pristine-maxlength-message="Максимальная длина 140 символов"></textarea>
+                    data-pristine-maxlength-message="Максимальная длина 140 символов"></textarea>
+                  </div>
                 </fieldset>
 
                 <!-- Кнопка для отправки данных на сервер -->
