@@ -1,6 +1,7 @@
 const form = document.getElementById('upload-select-image');
 const validator = window.validator = new Pristine(form, {
-  classTo: 'pristine-message'
+  classTo: 'pristine-message',
+  errorTextParent: 'pristine-message'
 });
 
 const hashRegex = /^#[A-Za-zА-яа-яЕё0-9]{1,19}$/;
@@ -8,7 +9,7 @@ const hashRegex = /^#[A-Za-zА-яа-яЕё0-9]{1,19}$/;
 validator.addValidator(
   document.querySelector('[name="hashtags"]'),
   (value) => { if(!value) {
-    return true
+    return value
       .trim()
       .split(' ')
       .filter((tag) => tag !== '')
