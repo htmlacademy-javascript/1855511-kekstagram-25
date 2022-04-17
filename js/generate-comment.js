@@ -1,6 +1,7 @@
 import {getRandomInt} from './until.js';
 import {getRandomArrayElement} from './until.js';
 
+
 const NAMES = [
   'Иван',
   'Дмитрий',
@@ -32,3 +33,5 @@ const generateComment = (commentId) => ({
 });
 
 export {generateComment};
+
+

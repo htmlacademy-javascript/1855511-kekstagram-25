@@ -1,5 +1,4 @@
-import {isEscapeKey} from './until.js';
-import {isEnterKey} from './until.js';
+import {isEnterKey, isEscapeKey} from './until.js';
 
 const userModalElement = document.querySelector('.img-upload__overlay');
 const userModalOpenElement = document.querySelector('#upload-file');
@@ -55,3 +54,5 @@ userModalCloseElement.addEventListener('keydown', (evt) => {
     closeUserModal();
   }
 });
+
+export {openUserModal, closeUserModal};
