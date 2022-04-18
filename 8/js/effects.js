@@ -3,6 +3,8 @@ const onListItemClick = document.querySelector('.effects__list');
 const slider = document.querySelector('.effect-level__slider');
 const sliderForm = document.querySelector('.img-upload__effect-level');
 const userModalCloseElement = document.querySelector('#upload-cancel');
+const checkedEffect = document.querySelector('#effect-none');
+
 
 const effectsConfig = {
   none: {
@@ -99,8 +101,15 @@ onListItemClick.addEventListener('change', (e) => {
   );
 });
 
-userModalCloseElement.addEventListener('click', () => {
+export const setDefaultEffect = () => {
   preview.className = '';
   preview.classList.add('effects__preview--none');
   slider.noUiSlider.updateOptions(effectsConfig.none.sliderOptions);
+  checkedEffect.checked = true;
+};
+
+userModalCloseElement.addEventListener('click', () => {
+  setDefaultEffect ();
 });
+
+
