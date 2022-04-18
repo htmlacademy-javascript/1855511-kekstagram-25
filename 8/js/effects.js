@@ -2,6 +2,7 @@ const preview = document.querySelector('.preview');
 const onListItemClick = document.querySelector('.effects__list');
 const slider = document.querySelector('.effect-level__slider');
 const sliderForm = document.querySelector('.img-upload__effect-level');
+const userModalCloseElement = document.querySelector('#upload-cancel');
 
 const effectsConfig = {
   none: {
@@ -98,3 +99,8 @@ onListItemClick.addEventListener('change', (e) => {
   );
 });
 
+userModalCloseElement.addEventListener('click', () => {
+  preview.className = '';
+  preview.classList.add('effects__preview--none');
+  slider.noUiSlider.updateOptions(effectsConfig.none.sliderOptions);
+});

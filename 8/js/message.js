@@ -6,7 +6,6 @@ export const renderMessageOk = () => {
   });
 };
 
-
 export const renderMessageError = () => {
   const error = document.querySelector('#error').content.querySelector('.error').cloneNode(true);
   document.body.appendChild(error);

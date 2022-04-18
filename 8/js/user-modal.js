@@ -6,11 +6,12 @@ const userModalCloseElement = document.querySelector('#upload-cancel');
 const bodyModalOpen = document.querySelector('body');
 const userFocusHashtags = document.querySelector('.text__hashtags');
 const userFocusDescription = document.querySelector('.text__description');
+const sliderForm = document.querySelector('.img-upload__effect-level');
 
 function openUserModal () {
   userModalElement.classList.remove('hidden');
   bodyModalOpen.classList.add('modal-open');
-
+  sliderForm.classList.add('hidden');
   document.addEventListener('keydown', (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
@@ -19,11 +20,9 @@ function openUserModal () {
   });
 }
 
-
 function closeUserModal () {
   userModalElement.classList.add('hidden');
   bodyModalOpen.classList.remove('modal-open');
-
   document.removeEventListener('keydown', (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
