@@ -2,6 +2,8 @@ const smallerElement = document.querySelector('.scale__control--smaller');
 const valueElement = document.querySelector('.scale__control--value');
 const biggerElement = document.querySelector('.scale__control--bigger');
 const valueStylePicturie = document.querySelector('.img-upload__preview');
+const userModalCloseElement = document.querySelector('#upload-cancel');
+const sliderForm = document.querySelector('.img-upload__effect-level');
 
 valueElement.value = `${100}%`;
 
@@ -24,4 +26,14 @@ smallerElement.addEventListener('click', ()=> {
   }
   valueStylePicturie.style.transform=`scale(${previousValue/100})`;
   valueElement.value = `${previousValue}%`;
+});
+
+export const defaultStylePicturie = () => {
+  valueStylePicturie.style.transform=`scale(${1})`;
+  sliderForm.classList.add('hidden');
+  valueElement.value = `${100}%`;
+};
+
+userModalCloseElement.addEventListener('click', () => {
+  defaultStylePicturie();
 });

@@ -1,11 +1,16 @@
-import {generateData} from './data.js';
 import {renderPictures} from './miniatures.js';
-import './user-modal.js';
-import './user-form.js';
+import {getData} from './api.js';
+import {closeUserModal} from './user-modal.js';
+import {setUserFormSubmit} from './user-form.js';
 import './value-element.js';
 import './effects.js';
-import './slider.js';
+import './api.js';
+import './message.js';
+import './upload-photo.js';
 
 
-const DATA = generateData();
-document.querySelector('.pictures').appendChild(renderPictures(DATA));
+getData().then((photos) => {
+  document.querySelector('.pictures').appendChild(renderPictures(photos));
+});
+
+setUserFormSubmit(closeUserModal);
