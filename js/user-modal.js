@@ -36,6 +36,7 @@ userFocusDescription.addEventListener('keydown', (e) => { e.stopPropagation(); }
 
 userModalOpenElement.addEventListener('change', () => {
   openUserModal();
+  document.querySelector('.success').classList.add('hidden');
 });
 
 userModalOpenElement.addEventListener('keydown', (evt) => {

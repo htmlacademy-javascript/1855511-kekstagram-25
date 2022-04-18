@@ -1,6 +1,8 @@
 import {sendData} from './api.js';
-import {renderMessageOk} from './message.js';
-import {renderMessageError} from './message.js';
+import {MessageOk} from './message.js';
+import {MessageError} from './message.js';
+import {setDefaultEffect} from './effects.js';
+import {defaultStylePicturie} from './value-element.js';
 
 const form = document.getElementById('upload-select-image');
 const submitButton = document.querySelector('#upload-submit');
@@ -47,11 +49,13 @@ const setUserFormSubmit = (onSuccess) => {
       sendData(
         () => {
           onSuccess();
+          setDefaultEffect();
+          defaultStylePicturie();
+          MessageOk();
           unblockSubmitButton();
-          renderMessageOk();
         },
         () => {
-          renderMessageError();
+          MessageError();
           unblockSubmitButton();
         },
         new FormData(e.target),
