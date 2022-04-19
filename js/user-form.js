@@ -1,9 +1,10 @@
 import {sendData} from './api.js';
-import {MessageOk} from './message.js';
-import {MessageError} from './message.js';
+import {showMessageOk} from './message.js';
+import {showMessageError} from './message.js';
 import {setDefaultEffect} from './effects.js';
 import {defaultStylePicturie} from './value-element.js';
 
+const userModalOpenElement = document.querySelector('#upload-file');
 const form = document.getElementById('upload-select-image');
 const submitButton = document.querySelector('#upload-submit');
 
@@ -21,11 +22,18 @@ validator.addValidator(
       return true;
     }
 
-    return value
+    const tags = value
       .trim()
       .split(' ')
-      .filter((tag) => tag !== '')
-      .every((tag) => hashRegex.test(tag));
+      .filter((tag) => tag !== '');
+
+    const tagsSet = new Set(tags);
+
+    if (tags.length !== tagsSet.size) {
+      return false;
+    }
+
+    return tags.every((tag) => hashRegex.test(tag));
   },
   'Неверный формат хештега'
 );
@@ -51,11 +59,15 @@ const setUserFormSubmit = (onSuccess) => {
           onSuccess();
           setDefaultEffect();
           defaultStylePicturie();
-          MessageOk();
+          userModalOpenElement.value = '';
+          showMessageOk();
           unblockSubmitButton();
         },
         () => {
-          MessageError();
+          onSuccess();
+          setDefaultEffect();
+          defaultStylePicturie();
+          showMessageError();
           unblockSubmitButton();
         },
         new FormData(e.target),
